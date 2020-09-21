@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Employments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Admission date</th>
+      <th>Resignation date</th>
+      <th>Base salary</th>
+      <th>Place</th>
+      <th>Person</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employments.each do |employment| %>
+      <tr>
+        <td><%= employment.admission_date %></td>
+        <td><%= employment.resignation_date %></td>
+        <td><%= employment.base_salary %></td>
+        <td><%= employment.place_id %></td>
+        <td><%= employment.person_id %></td>
+        <td><%= link_to 'Show', employment %></td>
+        <td><%= link_to 'Edit', edit_employment_path(employment) %></td>
+        <td><%= link_to 'Destroy', employment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Employment', new_employment_path %>

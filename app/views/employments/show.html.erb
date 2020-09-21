@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Admission date:</strong>
+  <%= @employment.admission_date %>
+</p>
+
+<p>
+  <strong>Resignation date:</strong>
+  <%= @employment.resignation_date %>
+</p>
+
+<p>
+  <strong>Base salary:</strong>
+  <%= @employment.base_salary %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @employment.place_id %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @employment.person_id %>
+</p>
+
+<%= link_to 'Edit', edit_employment_path(@employment) %> |
+<%= link_to 'Back', employments_path %>
