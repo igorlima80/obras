@@ -3,7 +3,8 @@ class EmploymentsController < ApplicationController
 
   # GET /employments
   def index
-    @employments = Employment.all
+    get_person   
+    @employments = @person.imployments.page(params[:page])
   end
 
   # GET /employments/1
@@ -12,7 +13,8 @@ class EmploymentsController < ApplicationController
 
   # GET /employments/new
   def new
-    @employment = Employment.new
+    get_person
+    @employment= @person.employments.build 
   end
 
   # GET /employments/1/edit
@@ -21,10 +23,10 @@ class EmploymentsController < ApplicationController
 
   # POST /employments
   def create
-    @employment = Employment.new(employment_params)
-
+    get_person
+    @employment = @person.employments.build(employment_params)  
     if @employment.save
-      redirect_to @employment, notice: 'Employment was successfully created.'
+      redirect_to @person, notice: 'Employment was successfully created.'      
     else
       render :new
     end
@@ -51,8 +53,16 @@ class EmploymentsController < ApplicationController
       @employment = Employment.find(params[:id])
     end
 
+    def get_person
+      @person = Person.find(params[:person_id])
+    end 
+
     # Only allow a trusted parameter "white list" through.
     def employment_params
-      params.require(:employment).permit(:admission_date, :resignation_date, :base_salary, :place_id, :person_id)
+      params.require(:employment).permit(:admission_date, :resignation_date, :base_salary, :place_id, :person_id,
+        benefits_attributes: [
+          :id, :_destroy, :benefit_type_id, :value
+        ]
+      )
     end
 end

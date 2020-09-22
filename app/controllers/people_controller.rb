@@ -53,16 +53,14 @@ class PeopleController < ApplicationController
     redirect_to people_url, notice: 'Person was successfully destroyed.'
   end
 
-  def dependents
-    render json: @person.people.as_json(only: [:id, :name])
-  end
+ 
 
   private
     # Only allow a trusted parameter "white list" through.
     def person_params
       params.require(:person).permit(
         :name, :photo, :father, :mother, :birth, :cpf, :rg, :user_id, :city_id, :registration,
-        :place_id, :admission, :county_id, :workplace_id, :business_email, :observations, 
+        :place_id, :business_email, 
         addresses_attributes: [
             :id, :description, :street, :number, :complement, :district, :zipcode, :city_id, :_destroy
         ],
@@ -71,6 +69,9 @@ class PeopleController < ApplicationController
         ],
         user_attributes: [
           :id, :_destroy, :name, :email, :password, :_destroy
+        ],
+        people_attributes: [
+          :id, :_destroy, :name, :photo, :father, :mother, :kinship_id, :birth, :cpf, :rg, :city_id
         ],
         documents_attributes: [
           :id, :_destroy, :document_type_id, :attachment

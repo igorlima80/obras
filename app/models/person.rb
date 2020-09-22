@@ -4,24 +4,25 @@ class Person < ApplicationRecord
   has_one_attached :photo
   has_one :account
 
-  # para cadastro dos dependentes nested
-  belongs_to :person, inverse_of: :people, optional: true
-  has_many :people, inverse_of: :person, dependent: :destroy
-  accepts_nested_attributes_for :people, allow_destroy: true
-  
+   # para cadastro dos dependentes nested
+   belongs_to :person, inverse_of: :people, optional: true
+   has_many :people, inverse_of: :person, dependent: :destroy
+   accepts_nested_attributes_for :people, allow_destroy: true
+   
+
   belongs_to :user, optional: true
   belongs_to :city
   belongs_to :place, optional: true
   #belongs_to :county, class_name: "City", foreign_key: "county_id", optional: true
   
-
-  belongs_to :accession, optional: true
-
   has_many :addresses, dependent: :destroy, as: :addressable
   has_many :phones, dependent: :destroy, as: :phonable
   
   has_many :documents, dependent: :destroy
   accepts_nested_attributes_for :documents, allow_destroy: true
+
+  has_many :employments, dependent: :destroy
+  accepts_nested_attributes_for :employments, allow_destroy: true
 
   accepts_nested_attributes_for :user, allow_destroy: true
   accepts_nested_attributes_for :addresses, allow_destroy: true
@@ -34,17 +35,12 @@ class Person < ApplicationRecord
  
 
   # para jogar dependentes no ancestry
-  before_save :set_parent_id
+  #before_save :set_parent_id
   
-  #para criar a conta financeira
- # after_create :create_account
 
-  def set_parent_id
-    self.parent_id = self.person_id
-  end
 
   def full_description
-    "#{name} (CPF: #{cpf} - Matrícula: #{registration})" 
+    "#{name} (CPF: #{cpf} )" 
   end
 
 

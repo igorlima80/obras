@@ -1,4 +1,44 @@
-<%= render 'shared/show', box_class: 'info', object: @person, excluded_columns: ['user_id'] %>
+<%= render 'shared/show', box_class: 'info', object: @person, excluded_columns: ['user_id', 'workplace'] %>
+
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      Vínculos
+      <%= link_to new_person_employment_path(@person), class: "btn btn-xs btn-info" do %>
+        Adicionar <i class="fa fa-plus"></i> 
+      <% end %>
+    </h3>
+  </div>
+  
+
+  <div class="card-body p-0">  
+    <table class="bootstrap-table-mobile">
+      <thead>
+        <tr>
+          <th data-align='center'>Data de Admissão</th>
+          <th data-align='center'>Cargo</th>
+          <th data-align='center'>Salário Base</th>
+          <th data-align='center'>Fim do Vínculo</th>
+          <th data-align='center'>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @person.employments.each do |e| %>
+          <tr>     
+            <td><%= e.admission_date%></td>
+            <td><%= e.place.name %></td>
+            <td><%= e.base_salary %></td>  
+            <td><%= e.resignation_date %></td>
+            <td><%= e.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>          
+  </div>
+</div> 
+
+
+
 
 <div class="card card-outline card-info">
   <div class="card-header">
