@@ -25,5 +25,9 @@ class Employment < ApplicationRecord
     self.status = 'active'
     self.save
   end  
+
+  def total_benefits
+    self.benefits.sum(:value_cents)
+  end
   
 end
