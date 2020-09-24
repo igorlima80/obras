@@ -6,7 +6,7 @@
       Vínculos
       <%= link_to new_person_employment_path(@person), class: "btn btn-xs btn-info" do %>
         Adicionar <i class="fa fa-plus"></i> 
-      <% end %>
+      <% end %>     
     </h3>
   </div>
   
@@ -15,29 +15,43 @@
     <table class="bootstrap-table-mobile">
       <thead>
         <tr>
+          <th data-align='center'>ID</th>
           <th data-align='center'>Data de Admissão</th>
           <th data-align='center'>Cargo</th>
           <th data-align='center'>Salário Base</th>
           <th data-align='center'>Benefícios</th>
           <th data-align='center'>Fim do Vínculo</th>
           <th data-align='center'>Status</th>
+          <th data-align='center'>Ações</th>
         </tr>
       </thead>
       <tbody>
         <% @person.employments.each do |e| %>
           <tr>     
+            <td> 
+                <%= link_to person_employment_path(@person) do %>
+                  <%= e.id%></i> 
+                <% end %>    
+            </td>    
             <td><%= e.admission_date%></td>
             <td><%= e.place.name %></td>
             <td><%= e.base_salary %></td>  
-            <td><%= e.total_benefits %></td>  
+            <td><%= e.total_benefits%></td>  
             <td><%= e.resignation_date %></td>
             <td><%= e.status %></td>
+            <td> 
+            <%= link_to person_employment_path(@person), class: "btn btn-xs btn-info" do %>
+              Visualizar </i> 
+            <% end %>    
+        </td>    
           </tr>
         <% end %>
       </tbody>
     </table>          
   </div>
 </div> 
+
+
 
 
 

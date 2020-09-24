@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tax: one
+  minimum_value: 
+  percentual: 1
+
+two:
+  tax: two
+  minimum_value: 
+  percentual: 1

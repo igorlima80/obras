@@ -1,0 +1,58 @@
+<%= simple_form_for(@deduction) do |f| %>
+  <div class="card card-outline card-info">
+    <div class="card-header">
+      <h3 class="card-title">
+        Dados do <%= object.class.model_name.human %> 
+        <%= link_to 'Cancelar', eval_with_rescue("#{controller_name}_path"), class: "btn btn-default btn-xs" %>
+        <%= f.submit 'Salvar', class: "btn btn-info btn-xs" %>
+      </h3>
+    </div>
+
+    <div class="card-body">
+      <div class="row">          
+      
+        <%= f.input :name, wrapper_html: { class: 'col-md-3' } %>          
+      </div>
+    </div>  
+  </div>
+
+
+  <div class="tab-pane" id="tab_6">
+  <div class="card card-outline card-info">
+    <div class="card-header">
+      <h3 class="card-title">
+        Faixas
+      </h3>
+    </div>
+    <div class="card-body">
+      <div id="documents" class='row'>
+        <div class="col-md-12">
+          <%= f.simple_fields_for :deduction_ranges do |be| %>
+            <%= render 'deduction_range_fields', f: be %>
+          <% end %>
+
+          <div class="control-group">
+            <div class="controls">
+              <%= link_to_add_association f, :deduction_ranges do %>
+                <div class="btn btn-success">
+                  <i class="fa fa-fw fa-plus"></i> Adicionar Faixa
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+  <div class="card card-outline card-info">
+    <div class="card-footer">
+      <%= link_to 'Cancelar', @deduction  , class: "btn btn-default" %>
+      <%= f.submit class: "btn btn-info" %>
+    </div>
+  </div>
+<% end %>

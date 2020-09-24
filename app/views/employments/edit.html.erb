@@ -1,6 +1,34 @@
-<h1>Editing Employment</h1>
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      Profissional
+    </h3>
+  </div>
+  <div class="table">
+    <div id="plans" class='row'>
+      <div class="card-body">  
+      <table class="table table-bordered table-striped no-padding datatables">
+        <thead>
+          <tr>
+            <th width="15%">Nome</th>
+            <th>CPF</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+          <tr>     
+              <td><%= @employment.person.name %> </td>  
+              <td><%= @employment.person.cpf  %></td> 
+                     
+          </tr>
+        
+        </tbody>
+      </table>          
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= render 'form', employment: @employment %>
 
-<%= link_to 'Show', @employment %> |
-<%= link_to 'Back', employments_path %>
+<%= render 'form', box_class: 'info', object: @employment %>
+

@@ -1,0 +1,29 @@
+<%= render 'shared/show', box_class: 'info', object: @deduction %>
+
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      Faixas     
+    </h3>
+  </div>
+  
+
+  <div class="card-body p-0">  
+    <table class="bootstrap-table-mobile">
+      <thead>
+        <tr>
+          <th data-align='center'>Valor</th>
+          <th data-align='center'>Percentual</th>          
+        </tr>
+      </thead>
+      <tbody>
+        <% @deduction.deduction_ranges.each do |dr| %>
+          <tr>     
+            <td><%= dr.minimum_value%></td>
+            <td><%= dr.percentual %></td>           
+          </tr>
+        <% end %>
+      </tbody>
+    </table>          
+  </div>
+</div> 

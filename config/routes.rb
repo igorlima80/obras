@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  resources :taxes
+  resources :deductions
   resources :benefits
   resources :benefit_types
   resources :employments

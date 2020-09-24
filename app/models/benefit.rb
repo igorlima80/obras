@@ -3,4 +3,5 @@ class Benefit < ApplicationRecord
   belongs_to :employment
 
   monetize :value_cents
+  
 end

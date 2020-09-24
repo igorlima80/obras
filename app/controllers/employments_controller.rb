@@ -5,10 +5,13 @@ class EmploymentsController < ApplicationController
   def index
     get_person   
     @employments = @person.imployments.page(params[:page])
+
+    
   end
 
   # GET /employments/1
   def show
+    get_person
   end
 
   # GET /employments/new

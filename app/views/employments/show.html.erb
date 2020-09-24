@@ -1,29 +1,33 @@
-<p id="notice"><%= notice %></p>
+<%= render 'shared/show', box_class: 'info', object: @employment %>
 
-<p>
-  <strong>Admission date:</strong>
-  <%= @employment.admission_date %>
-</p>
 
-<p>
-  <strong>Resignation date:</strong>
-  <%= @employment.resignation_date %>
-</p>
 
-<p>
-  <strong>Base salary:</strong>
-  <%= @employment.base_salary %>
-</p>
-
-<p>
-  <strong>Place:</strong>
-  <%= @employment.place_id %>
-</p>
-
-<p>
-  <strong>Person:</strong>
-  <%= @employment.person_id %>
-</p>
-
-<%= link_to 'Edit', edit_employment_path(@employment) %> |
-<%= link_to 'Back', employments_path %>
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      Benefícios
+    </h3>
+  </div>
+  <div class="table">
+    <div id="beneficios" class='row'>
+      <div class="card-body">  
+      <table class="table table-bordered table-striped no-padding datatables">
+        <thead>
+          <tr>
+            <th width="15%">Tipo de Benefício</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @employment.benefits.each do |d| %>
+          <tr>     
+              <td><%= d.benefit_type.name %> </td>  
+              <td><%= d.value %> </td>  
+          </tr>
+        <% end %>
+        </tbody>
+      </table>          
+      </div>
+    </div>
+  </div>
+</div>  
