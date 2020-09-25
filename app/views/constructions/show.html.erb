@@ -1,0 +1,38 @@
+<%= render 'shared/show', box_class: 'info', object: @construction %>
+
+
+
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      Documentos
+    </h3>
+  </div>
+  <div class="table">
+    <div id="documentos" class='row'>
+      <div class="card-body">  
+      <table class="table table-bordered table-striped no-padding datatables">
+        <thead>
+          <tr>
+            <th width="15%">Tipo de Documento</th>
+            <th>Anexo</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @construction.documents.each do |d| %>
+          <tr>     
+              <td><%= d.document_type.name %> </td>  
+              <td><%= link_to "Visualizar", rails_blob_path(d.attachment, disposition: 'preview'), target: :_blank  %></td>                 
+          </tr>
+        <% end %>
+        </tbody>
+      </table>          
+      </div>
+    </div>
+  </div>
+</div>  
+
+
+
+
+

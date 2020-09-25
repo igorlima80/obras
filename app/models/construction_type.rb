@@ -1,0 +1,2 @@
+class ConstructionType < ApplicationRecord
+end

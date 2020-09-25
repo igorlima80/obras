@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :constructions
+  resources :construction_types
   resources :taxes
   resources :deductions
   resources :benefits
