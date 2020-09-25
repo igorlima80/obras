@@ -18,8 +18,9 @@ class Person < ApplicationRecord
   has_many :addresses, dependent: :destroy, as: :addressable
   has_many :phones, dependent: :destroy, as: :phonable
   
-  has_many :documents, dependent: :destroy
-  accepts_nested_attributes_for :documents, allow_destroy: true
+  has_many :documents, dependent: :destroy, as: :documentable
+  accepts_nested_attributes_for :documents
+  
 
   has_many :employments, dependent: :destroy
   accepts_nested_attributes_for :employments, allow_destroy: true

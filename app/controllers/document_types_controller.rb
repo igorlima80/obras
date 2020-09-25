@@ -3,7 +3,8 @@ class DocumentTypesController < ApplicationController
 
   # GET /document_types
   def index
-    @document_types = DocumentType.all
+    @q = DocumentType.ransack(params[:q])
+    @document_types = @q.result(distinct: true).page(params[:page])
   end
 
   # GET /document_types/1
