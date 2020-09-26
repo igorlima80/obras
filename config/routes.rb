@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   
-  resources :constructions
+  resources :tasks
+  resources :task_types
+  resources :stages
+  
+  resources :constructions do
+    resources :tasks
+  end 
+
   resources :construction_types
   resources :taxes
   resources :deductions
@@ -9,11 +16,8 @@ Rails.application.routes.draw do
   resources :employments
   resources :document_types
   
-
-  
   resources :people do
-    resources :employments
-    
+    resources :employments    
   end
   
   resources :analyzes 

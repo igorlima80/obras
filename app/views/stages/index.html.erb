@@ -1,15 +1,11 @@
 <%= render 'shared/card_list',
-  list: @constructions,
+  list: @stages,
   sort_all: true,
   show_new: true,
   card_class: 'info',
   table_class: 'bootstrap-table-mobile',
   show_columns: [
     'id',
-    'name',
-    'workplace.name',
-    'start_date',
-    'end_date',
-    'area'    
+    'name'
   ]
 %>

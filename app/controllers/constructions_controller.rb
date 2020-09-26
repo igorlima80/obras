@@ -58,6 +58,8 @@ class ConstructionsController < ApplicationController
       @construction = Construction.find(params[:id])
     end
 
+  
+
     # Only allow a trusted parameter "white list" through.
     def construction_params
       params.require(:construction).permit(:name, :description, :start_date, :end_date, :area, :expected_budget, 

@@ -17,5 +17,8 @@ class Construction < ApplicationRecord
   has_many :documents, dependent: :destroy, as: :documentable
   accepts_nested_attributes_for :documents
 
+  has_many :tasks, dependent: :destroy
+  accepts_nested_attributes_for :tasks
+
 
 end

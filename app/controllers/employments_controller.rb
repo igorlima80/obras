@@ -4,9 +4,7 @@ class EmploymentsController < ApplicationController
   # GET /employments
   def index
     get_person   
-    @employments = @person.imployments.page(params[:page])
-
-    
+    @employments = @person.imployments.page(params[:page])    
   end
 
   # GET /employments/1
@@ -32,7 +30,7 @@ class EmploymentsController < ApplicationController
       redirect_to @person, notice: 'Employment was successfully created.'      
     else
       render :new
-    end
+    endperson
   end
 
   # PATCH/PUT /employments/1
