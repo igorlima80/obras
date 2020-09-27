@@ -1,7 +1,7 @@
 class EmploymentsController < ApplicationController
-  before_action :set_employment, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
   # GET /employments
+  
   def index
     get_person   
     @employments = @person.imployments.page(params[:page])    
@@ -30,7 +30,7 @@ class EmploymentsController < ApplicationController
       redirect_to @person, notice: 'Employment was successfully created.'      
     else
       render :new
-    endperson
+    end
   end
 
   # PATCH/PUT /employments/1
@@ -67,3 +67,4 @@ class EmploymentsController < ApplicationController
       )
     end
 end
+

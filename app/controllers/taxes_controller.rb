@@ -1,5 +1,5 @@
 class TaxesController < ApplicationController
-  before_action :set_tax, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /taxes
   def index

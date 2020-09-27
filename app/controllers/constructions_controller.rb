@@ -1,7 +1,8 @@
 class ConstructionsController < ApplicationController
   load_and_authorize_resource
-
+  
   # GET /constructions
+
   def index
     @q = Construction.ransack(params[:q])
     @constructions = @q.result(distinct: true).page(params[:page])

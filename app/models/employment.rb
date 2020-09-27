@@ -13,6 +13,9 @@ class Employment < ApplicationRecord
   has_many :benefits, dependent: :destroy
   accepts_nested_attributes_for :benefits, allow_destroy: true
 
+  has_many :tasks
+  
+
 
   after_create :set_active_employment
 
@@ -28,6 +31,10 @@ class Employment < ApplicationRecord
 
   def total_benefits
     self.benefits.sum(:value_cents)
+  end
+
+  def full_description
+    "#{self.person.name} (CPF: #{self.person.cpf} - Vínculo: #{self.place.name})" 
   end
   
 end

@@ -1,6 +1,6 @@
 class TaskTypesController < ApplicationController
-  before_action :set_task_type, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
+  
   # GET /task_types
   def index
     @q = TaskType.ransack(params[:q])

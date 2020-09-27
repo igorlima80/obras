@@ -29,3 +29,56 @@
     </div>
   </div>
 </div>  
+
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      Tarefas  
+    </h3>
+  </div>
+  
+
+  <div class="card-body p-0">  
+    <table class="bootstrap-table-mobile">
+      <thead>
+        <tr>
+          <th data-align='center'>ID</th>
+          <th data-align='center'>Etapa</th> 
+          <th data-align='center'>Tipo de Tarefa</th>
+          <th data-align='center'>Data de Início</th>
+          <th data-align='center'>Data de Fim</th>
+          <th data-align='center'>Orçamento Previsto</th>
+          <th data-align='center'>Custo Real</th>
+          <th data-align='center'>Status</th>
+          <th data-align='center'>Ações</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <% @employment.tasks.each do |t| %>
+          <tr>     
+            <td> 
+                <%= link_to construction_task_path(t.construction) do %>
+                  <%= t.id %></i> 
+                <% end %>    
+            </td>    
+           
+            <td><%= t.task_type.stage.name %></td>
+            <td><%= t.task_type.name %></td>
+            <td><%= t.start_date %></td>  
+            <td><%= t.end_date %></td>  
+            <td><%= t.budget_amount %></td>
+            <td><%= t.cost %></td>
+            <td><%= t.status %></td>
+            <td> 
+              <%= link_to construction_task_path(t.construction), class: "btn btn-xs btn-info" do %>
+                Visualizar </i> 
+              <% end %>    
+            </td>    
+          </tr>
+        <% end %>
+      </tbody>
+    </table>          
+  </div>
+</div> 
+

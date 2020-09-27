@@ -1,5 +1,5 @@
 class DocumentTypesController < ApplicationController
-  before_action :set_document_type, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /document_types
   def index

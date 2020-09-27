@@ -56,6 +56,7 @@
           <th data-align='center'>Orçamento Previsto</th>
           <th data-align='center'>Custo Real</th>
           <th data-align='center'>Status</th>
+          <th data-align='center'>Atribuida a</th>
           <th data-align='center'>Ações</th>
 
         </tr>
@@ -76,11 +77,16 @@
             <td><%= t.budget_amount %></td>
             <td><%= t.cost %></td>
             <td><%= t.status %></td>
+            <td>
+              <% unless t.employment.blank? %>
+                <%= t.employment.person.name %>
+              <% end %> 
+            </td>  
             <td> 
-            <%= link_to construction_task_path(@construction), class: "btn btn-xs btn-info" do %>
-              Visualizar </i> 
-            <% end %>    
-        </td>    
+              <%= link_to construction_task_path(@construction), class: "btn btn-xs btn-info" do %>
+                Visualizar </i> 
+              <% end %>    
+            </td>    
           </tr>
         <% end %>
       </tbody>
