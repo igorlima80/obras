@@ -26,7 +26,7 @@ SimpleForm.setup do |config|
     b.use :html5
 
     # Calculates placeholders automatically from I18n
-    # You can also pass a string as f.input placeholder: "Placeholder"
+    # You can also pass a string as f.input placeholder: "Occupationholder"
     b.use :placeholder
 
     ## Optional extensions

@@ -60,7 +60,7 @@ class EmploymentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def employment_params
-      params.require(:employment).permit(:admission_date, :resignation_date, :base_salary, :place_id, :person_id,
+      params.require(:employment).permit(:admission_date, :resignation_date, :base_salary, :occupation_id, :person_id,
         benefits_attributes: [
           :id, :_destroy, :benefit_type_id, :value
         ]

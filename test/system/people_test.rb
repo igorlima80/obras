@@ -24,7 +24,7 @@ class PeopleTest < ApplicationSystemTestCase
     fill_in "Mother", with: @person.mother
     fill_in "Name", with: @person.name
     fill_in "Observations", with: @person.observations
-    fill_in "Place", with: @person.place_id
+    fill_in "Occupation", with: @person.place_id
     fill_in "Registration", with: @person.registration
     fill_in "Rg", with: @person.rg
     fill_in "User", with: @person.user_id
@@ -49,7 +49,7 @@ class PeopleTest < ApplicationSystemTestCase
     fill_in "Mother", with: @person.mother
     fill_in "Name", with: @person.name
     fill_in "Observations", with: @person.observations
-    fill_in "Place", with: @person.place_id
+    fill_in "Occupation", with: @person.place_id
     fill_in "Registration", with: @person.registration
     fill_in "Rg", with: @person.rg
     fill_in "User", with: @person.user_id

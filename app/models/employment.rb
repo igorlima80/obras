@@ -7,7 +7,7 @@ class Employment < ApplicationRecord
 
   monetize :base_salary_cents
 
-  belongs_to :place
+  belongs_to :occupation
   belongs_to :person
 
   has_many :benefits, dependent: :destroy
@@ -34,7 +34,7 @@ class Employment < ApplicationRecord
   end
 
   def full_description
-    "#{self.person.name} (CPF: #{self.person.cpf} - Vínculo: #{self.place.name})" 
+    "#{self.person.name} (CPF: #{self.person.cpf} - Vínculo: #{self.occupation.name})" 
   end
   
 end

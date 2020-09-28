@@ -14,7 +14,7 @@ class PeopleController < ApplicationController
   # GET /people/new
   def new
     @person.addresses.build
-    @person.documents.build
+    #@person.documents.build
     @person.build_user
       
     @person.phones.build phone_type: PhoneType.first

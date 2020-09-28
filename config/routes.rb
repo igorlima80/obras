@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  resources :bank_accounts
+  resources :providers
+  resources :banks
   resources :tasks
   resources :task_types
   resources :stages
@@ -25,7 +28,7 @@ Rails.application.routes.draw do
   resources :countries
   resources :menu_items
   resources :phone_types
-  resources :places
+  resources :occupations
   resources :settings
   resources :states
   resources :users

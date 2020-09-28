@@ -728,9 +728,9 @@
             self.$btnUpload = $cont.find('.fileinput-upload');
             self.$captionContainer = $h.getElement(options, 'elCaptionContainer', $cont.find('.file-caption'));
             self.$caption = $h.getElement(options, 'elCaptionText', $cont.find('.file-caption-name'));
-            if (!$h.isEmpty(self.msgPlaceholder)) {
+            if (!$h.isEmpty(self.msgOccupationholder)) {
                 f = $el.attr('multiple') ? self.filePlural : self.fileSingle;
-                self.$caption.attr('placeholder', self.msgPlaceholder.replace('{files}', f));
+                self.$caption.attr('placeholder', self.msgOccupationholder.replace('{files}', f));
             }
             self.$captionIcon = self.$captionContainer.find('.file-caption-icon');
             self.$previewContainer = $h.getElement(options, 'elPreviewContainer', $cont.find('.file-preview'));
@@ -5660,7 +5660,7 @@
         msgNoFilesSelected: 'No files selected',
         msgCancelled: 'Cancelled',
         msgPaused: 'Paused',
-        msgPlaceholder: 'Select {files}...',
+        msgOccupationholder: 'Select {files}...',
         msgZoomModalHeading: 'Detailed Preview',
         msgFileRequired: 'You must select a file to upload.',
         msgSizeTooSmall: 'File "{name}" (<b>{size} KB</b>) is too small and must be larger than <b>{minSize} KB</b>.',

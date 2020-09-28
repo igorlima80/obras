@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PlacesControllerTest < ActionDispatch::IntegrationTest
+class OccupationsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @place = places(:one)
   end
@@ -16,11 +16,11 @@ class PlacesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create place" do
-    assert_difference('Place.count') do
+    assert_difference('Occupation.count') do
       post places_url, params: { place: { name: @place.name } }
     end
 
-    assert_redirected_to place_url(Place.last)
+    assert_redirected_to place_url(Occupation.last)
   end
 
   test "should show place" do
@@ -39,7 +39,7 @@ class PlacesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy place" do
-    assert_difference('Place.count', -1) do
+    assert_difference('Occupation.count', -1) do
       delete place_url(@place)
     end
 

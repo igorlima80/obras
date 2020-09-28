@@ -1,4 +1,4 @@
-<%= search_form_for @q, url: places_path do |f| %>
+<%= search_form_for @q, url: occupations_path do |f| %>
   <div class="card card-primary card-outline card-info">
     <div class="card-header with-border">
       <div class="row">
@@ -30,7 +30,7 @@
 <% end %>
 
 <%= render 'shared/card_list',
-  list: @places,
+  list: @occupations,
   sort_all: true,
   show_new: true,
   card_class: 'info',

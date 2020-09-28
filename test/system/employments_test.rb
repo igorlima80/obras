@@ -17,7 +17,7 @@ class EmploymentsTest < ApplicationSystemTestCase
     fill_in "Admission date", with: @employment.admission_date
     fill_in "Base salary", with: @employment.base_salary
     fill_in "Person", with: @employment.person_id
-    fill_in "Place", with: @employment.place_id
+    fill_in "Occupation", with: @employment.place_id
     fill_in "Resignation date", with: @employment.resignation_date
     click_on "Create Employment"
 
@@ -32,7 +32,7 @@ class EmploymentsTest < ApplicationSystemTestCase
     fill_in "Admission date", with: @employment.admission_date
     fill_in "Base salary", with: @employment.base_salary
     fill_in "Person", with: @employment.person_id
-    fill_in "Place", with: @employment.place_id
+    fill_in "Occupation", with: @employment.place_id
     fill_in "Resignation date", with: @employment.resignation_date
     click_on "Update Employment"
 

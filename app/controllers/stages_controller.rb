@@ -4,7 +4,8 @@ class StagesController < ApplicationController
   # GET /stages
   def index
     @q = Stage.ransack(params[:q])
-    @stages = @q.result(distinct: true).page(params[:page])
+    @stages = @q.result(distinct: true).page(params[:page]).order('id ASC')
+    
   end
 
   # GET /stages/1
@@ -54,6 +55,9 @@ class StagesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def stage_params
-      params.require(:stage).permit(:name)
+      params.require(:stage).permit(:name,
+        task_types_attributes: [
+              :id, :name, :_destroy
+        ])
     end
 end

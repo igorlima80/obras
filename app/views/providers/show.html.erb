@@ -1,0 +1,67 @@
+<%= render 'shared/show', box_class: 'info', object: @provider %>
+
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+     Endereço          
+    </h3>
+  </div>  
+
+  <div class="card-body p-0">  
+    <table class="bootstrap-table-mobile">
+      <thead>
+        <tr>
+          
+          <th data-align='center'>Logradouro</th>
+          <th data-align='center'>Número</th>
+          <th data-align='center'>Bairro</th>
+          <th data-align='center'>Cidade</th>
+          <th data-align='center'>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @provider.addresses.each do |e| %>
+          <tr>     
+              
+            <td><%= e.street%></td>
+            <td><%= e.number %></td>
+            <td><%= e.district %></td>  
+            <td><%= e.city.name%></td>  
+            <td><%= e.city.state.name %></td>               
+          </tr>
+        <% end %>
+      </tbody>
+    </table>          
+  </div>
+</div> 
+
+
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+     Telefones          
+    </h3>
+  </div>  
+
+  <div class="card-body p-0">  
+    <table class="bootstrap-table-mobile">
+      <thead>
+        <tr>
+          
+          <th data-align='center'>Número</th>
+          <th data-align='center'>Tipo de Telefone</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <% @provider.phones.each do |e| %>
+          <tr>                 
+            <td><%= e.number%></td>
+            <td><%= e.phone_type.name %></td>                    
+          </tr>
+        <% end %>
+      </tbody>
+    </table>          
+  </div>
+</div> 
+
