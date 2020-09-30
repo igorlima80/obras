@@ -40,4 +40,4 @@ db/schema.rb
 
 # Ignorar pasta do active storage
 /storage/*
-/config/database.yml
+
