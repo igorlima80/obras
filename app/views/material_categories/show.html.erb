@@ -1,10 +1,10 @@
-<%= render 'shared/show', box_class: 'info', object: @stage%>
+<%= render 'shared/show', box_class: 'info', object: @material_category%>
 
 
 <div class="card card-outline card-info">
   <div class="card-header">
     <h3 class="card-title">
-     Sub-Etapas 
+     Materiais 
     </h3>
   </div>
   
@@ -20,10 +20,10 @@
         </tr>
       </thead>
       <tbody>
-        <% @stage.sub_stages.each do |t| %>
+        <% @material_category.materials.each do |t| %>
           <tr>     
             <td> 
-                <%= link_to sub_stage_path(t) do %>
+                <%= link_to material_path(t) do %>
                   <%= t.id %></i> 
                 <% end %>    
             </td>    
@@ -31,7 +31,7 @@
             <td><%= t.name %></td>
             
             <td> 
-              <%= link_to sub_stage_path(t), class: "btn btn-xs btn-info" do %>
+              <%= link_to material_path(t), class: "btn btn-xs btn-info" do %>
                 Visualizar </i> 
               <% end %>    
             </td>    

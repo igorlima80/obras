@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  expected_date: 2020-09-30
+  construction: one
+  provider: one
+  status: 1
+  sub_stage: one
+
+two:
+  expected_date: 2020-09-30
+  construction: two
+  provider: two
+  status: 1
+  sub_stage: two

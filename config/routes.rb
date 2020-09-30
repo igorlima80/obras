@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   
+  resources :purchase_items
+  resources :purchases
+  resources :materials
+  resources :material_categories
+  resources :sub_stages
   resources :bank_accounts
   resources :providers
   resources :banks

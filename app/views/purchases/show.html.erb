@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Expected date:</strong>
+  <%= @purchase.expected_date %>
+</p>
+
+<p>
+  <strong>Construction:</strong>
+  <%= @purchase.construction_id %>
+</p>
+
+<p>
+  <strong>Provider:</strong>
+  <%= @purchase.provider_id %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @purchase.status %>
+</p>
+
+<p>
+  <strong>Sub stage:</strong>
+  <%= @purchase.sub_stage_id %>
+</p>
+
+<%= link_to 'Edit', edit_purchase_path(@purchase) %> |
+<%= link_to 'Back', purchases_path %>

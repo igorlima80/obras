@@ -1,4 +1,4 @@
-<%= simple_form_for(@stage) do |f| %>
+<%= simple_form_for(@material_category) do |f| %>
   <div class="card card-outline card-info">
     <div class="card-header">
       <h3 class="card-title">
@@ -20,22 +20,22 @@
       <div class="card card-outline card-info">
         <div class="card-header">
           <h3 class="card-title">
-            Sub-Etapas
+            Materiais
           </h3>
         </div>
         <div class="card-body">
                     
           <div id="task_types" class='row'>
             <div class="col-md-12">
-              <%= f.simple_fields_for :sub_stages do |tt| %>
-                <%= render 'sub_stage_fields', f: tt %>
+              <%= f.simple_fields_for :materials do |tt| %>
+                <%= render 'material_fields', f: tt %>
               <% end %>
 
               <div class="control-group">
                 <div class="controls">
-                  <%= link_to_add_association f, :sub_stages do %>
+                  <%= link_to_add_association f, :materials do %>
                     <div class="btn btn-success">
-                      <i class="fa fa-fw fa-plus"></i> Adicionar Sub-Etapa
+                      <i class="fa fa-fw fa-plus"></i> Adicionar Material
                     </div>
                   <% end %>
                 </div>
