@@ -1,17 +1,64 @@
-
 <%= simple_form_for(@purchase) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="card card-outline card-info">
+    <div class="card-header">
+      <h3 class="card-title">
+        Dados do <%= object.class.model_name.human %> 
+        <%= link_to 'Cancelar', eval_with_rescue("#{controller_name}_path"), class: "btn btn-default btn-xs" %>
+        <%= f.submit 'Salvar', class: "btn btn-info btn-xs" %>
+      </h3>
+    </div>
 
-  <div class="form-inputs">
-    <%= f.input :expected_date %>
-    <%= f.association :construction %>
-    <%= f.association :provider %>
-    <%= f.input :status %>
-    <%= f.association :sub_stage %>
+    <div class="card-body">
+      <div class="row">     
+      <%= f.input :expected_date, html5: true,  wrapper_html: { class: 'col-md-3' } %>
+      <%= f.input :purchase_date, html5: true,  wrapper_html: { class: 'col-md-3' } %>
+      <%= f.association :construction, wrapper_html: { class: 'col-md-3' } %>
+      <%= f.association :sub_stage, label_method: :full_description, input_html: { class: 'select2' }, wrapper_html: { class: 'col-md-3' } %>
+      <%= f.association :provider, wrapper_html: { class: 'col-md-3' } %>
+      <%= f.input :status, wrapper_html: { class: 'col-md-3' } %>
+      </div>
+    </div>  
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+
+  <div class="tab-pane" id="tab_5">
+      <div class="card card-outline card-info">
+        <div class="card-header">
+          <h3 class="card-title">
+            Itens da Compra
+          </h3>
+        </div>
+        <div class="card-body">
+                    
+          <div id="task_types" class='row'>
+            <div class="col-md-12">
+              <%= f.simple_fields_for :purchase_items do |tt| %>
+                <%= render 'purchase_item_fields', f: tt %>
+              <% end %>
+
+              <div class="control-group">
+                <div class="controls">
+                  <%= link_to_add_association f, :purchase_items do %>
+                    <div class="btn btn-success">
+                      <i class="fa fa-fw fa-plus"></i> Adicionar Item
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  <div class="card card-outline card-info">
+    <div class="card-footer">
+      <%= f.submit class: "btn btn-info" %>
+      <%= link_to 'Cancelar', eval_with_rescue("#{controller_name}_path"), class: "btn btn-default" %>
+    </div>
   </div>
+
 <% end %>

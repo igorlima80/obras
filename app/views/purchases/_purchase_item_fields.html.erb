@@ -1,0 +1,14 @@
+<div class="purchase_item nested-fields">
+  <div class='row'>
+    <%= f.association :material, label_method: :full_description, input_html: { class: 'select2' }, wrapper_html: { class: 'col-md-4' } %>
+    <%= f.input :unity_price, wrapper_html: { class: 'col-md-2' }%> 
+    <%= f.input :amount, wrapper_html: { class: 'col-md-2' }%> 
+    <%= f.input :unity_price, wrapper_html: { class: 'col-md-2' }%> 
+   
+    <div class="col-md-2">
+      <%= link_to_remove_association f, class: 'btn btn-danger top-32' do %>
+        <i class="fa fa-fw fa-times"></i>
+      <% end %>
+    </div>
+  </div>
+</div>

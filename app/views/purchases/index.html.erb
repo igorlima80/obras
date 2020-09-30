@@ -1,35 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Purchases</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Expected date</th>
-      <th>Construction</th>
-      <th>Provider</th>
-      <th>Status</th>
-      <th>Sub stage</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @purchases.each do |purchase| %>
-      <tr>
-        <td><%= purchase.expected_date %></td>
-        <td><%= purchase.construction_id %></td>
-        <td><%= purchase.provider_id %></td>
-        <td><%= purchase.status %></td>
-        <td><%= purchase.sub_stage_id %></td>
-        <td><%= link_to 'Show', purchase %></td>
-        <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
-        <td><%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Purchase', new_purchase_path %>
+<%= render 'shared/card_list',
+  list: @purchases,
+  order: 'id',
+  sort_all: true,
+  show_new: true,
+  card_class: 'info',
+  table_class: 'bootstrap-table-mobile',
+  show_columns: [
+    'id',
+    'expected_date',
+    'purchase_date',
+    'construction.name',
+    'sub_stage.name',
+    'provider.name',
+    'status'
+  ]
+%>

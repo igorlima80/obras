@@ -3,7 +3,8 @@ class PurchasesController < ApplicationController
 
   # GET /purchases
   def index
-    @purchases = Purchase.all
+    @q = Purchase.ransack(params[:q])
+    @purchases = @q.result(distinct: true).page(params[:page])
   end
 
   # GET /purchases/1
@@ -53,6 +54,9 @@ class PurchasesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def purchase_params
-      params.require(:purchase).permit(:expected_date, :construction_id, :provider_id, :status, :sub_stage_id)
+      params.require(:purchase).permit(:expected_date, :construction_id, :provider_id, :status, :sub_stage_id,
+        purchase_items_attributes: [
+          :id, :amount, :unity_price, :total_price, :material_id, :_destroy
+        ])
     end
 end

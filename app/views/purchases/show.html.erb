@@ -1,29 +1,35 @@
-<p id="notice"><%= notice %></p>
+<%= render 'shared/show', box_class: 'info', object: @purchase%>
 
-<p>
-  <strong>Expected date:</strong>
-  <%= @purchase.expected_date %>
-</p>
 
-<p>
-  <strong>Construction:</strong>
-  <%= @purchase.construction_id %>
-</p>
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+     Itens da Compra
+    </h3>
+  </div>
+  
 
-<p>
-  <strong>Provider:</strong>
-  <%= @purchase.provider_id %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @purchase.status %>
-</p>
-
-<p>
-  <strong>Sub stage:</strong>
-  <%= @purchase.sub_stage_id %>
-</p>
-
-<%= link_to 'Edit', edit_purchase_path(@purchase) %> |
-<%= link_to 'Back', purchases_path %>
+  <div class="card-body p-0">  
+    <table class="bootstrap-table-mobile">
+      <thead>
+        <tr>
+          <th data-align='center'>ID</th>
+          <th data-align='left'>Quantidade</th> 
+          <th data-align='left'>Preço Unitário</th>
+          <th data-align='left'>Preço Total</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <% @purchase.purchase_items.each do |t| %>
+          <tr>           
+            <td><%= t.id %></td>
+            <td><%= t.amount %></td>
+            <td><%= t.unity_price %></td>
+            <td><%= t.total_price %></td>   
+          </tr>
+        <% end %>
+      </tbody>
+    </table>          
+  </div>
+</div> 
