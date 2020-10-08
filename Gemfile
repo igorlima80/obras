@@ -87,3 +87,9 @@ gem 'via_cep'
 
 # Help ActiveRecord::Enum feature to work fine with I18n and simple_form
 gem 'enum_help'
+
+
+
+
+gem 'mini_magick'
+gem 'carrierwave'

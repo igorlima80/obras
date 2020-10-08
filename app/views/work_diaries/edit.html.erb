@@ -1,0 +1,33 @@
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      Construção
+    </h3>
+  </div>
+  <div class="table">
+    <div id="plans" class='row'>
+      <div class="card-body">  
+      <table class="table table-bordered table-striped no-padding datatables">
+        <thead>
+          <tr>
+            <th width="15%">Nome</th>
+            <th>Local</th>
+            <th>Tipo de Construção</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+          <tr>     
+              <td><%= @work_diary.construction.name %> </td>  
+              <td><%= @work_diary.construction.workplace.name  %></td> 
+              <td><%= @work_diary.construction.construction_type.name  %></td>       
+          </tr>
+        
+        </tbody>
+      </table>          
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render 'form', object: @work_diary %>

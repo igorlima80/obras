@@ -25,6 +25,8 @@ class ConstructionsController < ApplicationController
 
   # GET /constructions/1/edit
   def edit
+    
+    @cities_address = @construction.addresses.map(&:city)
   end
 
   # POST /constructions
@@ -66,7 +68,7 @@ class ConstructionsController < ApplicationController
       params.require(:construction).permit(:name, :description, :start_date, :end_date, :area, :expected_budget, 
                                            :ground_area, :bedroom, :bathroom, :toilet, :living_room, :cars_in_garage, 
                                            :construction_type_id, :workplace_id, :pattern, :barbecue_grill, 
-                                           :home_office, :balcony,
+                                           :home_office, :balcony, :employment_ids => [],
           addresses_attributes: [
             :id, :description, :street, :number, :complement, :district, :zipcode, :city_id, :_destroy
           ],

@@ -14,6 +14,10 @@ class Employment < ApplicationRecord
   accepts_nested_attributes_for :benefits, allow_destroy: true
 
   has_many :tasks
+  has_many :frequencies
+
+  has_and_belongs_to_many :constructions
+
   
 
 

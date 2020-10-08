@@ -30,6 +30,46 @@
   </div>
 </div>  
 
+
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      Construções
+    </h3>
+  </div>
+  <div class="table">
+    <div id="beneficios" class='row'>
+      <div class="card-body">  
+      <table class="table table-bordered table-striped no-padding datatables">
+        <thead>
+          <tr>
+            <th width="15%">Local de Trabalho</th>
+            <th>Tipo de Construção</th>
+            <th>Área (m²)</th>
+            <th>Data de Início</th>
+            <th>Data de Término</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @employment.constructions.each do |c| %>
+          <tr>     
+              <td><%= c.workplace.name %> </td>  
+              <td><%= c.construction_type.name %> </td> 
+              <td><%= c.area %> </td>
+              <td><%= c.start_date %> </td>
+              <td><%= c.end_date %> </td>   
+          </tr>
+        <% end %>
+        </tbody>
+      </table>          
+      </div>
+    </div>
+  </div>
+</div>  
+
+
+
+
 <div class="card card-outline card-info">
   <div class="card-header">
     <h3 class="card-title">

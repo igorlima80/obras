@@ -20,5 +20,13 @@ class Construction < ApplicationRecord
   has_many :tasks, dependent: :destroy
   accepts_nested_attributes_for :tasks
 
+  has_many :work_diaries, dependent: :destroy
+  accepts_nested_attributes_for :work_diaries
+
+  has_and_belongs_to_many :employments, dependent: :destroy
+
+  def full_description
+    "#{self.workplace.name} - #{self.construction_type.name} - #{self.area} m² - #{self.name} " 
+  end
 
 end

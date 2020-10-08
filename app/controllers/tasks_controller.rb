@@ -56,7 +56,7 @@ class TasksController < ApplicationController
     end
 
     def get_construction
-      @construction = Construction.find(params[:construction_id])
+      @construction = Construction.find(params[:construction_id]) 
     end 
 
     # Only allow a trusted parameter "white list" through.

@@ -1,36 +1,42 @@
 <%= render 'shared/show', box_class: 'info', object: @construction %>
 
 
-
 <div class="card card-outline card-info">
   <div class="card-header">
     <h3 class="card-title">
-      Documentos
+      Equipe   
     </h3>
   </div>
-  <div class="table">
-    <div id="documentos" class='row'>
-      <div class="card-body">  
-      <table class="table table-bordered table-striped no-padding datatables">
-        <thead>
-          <tr>
-            <th width="15%">Tipo de Documento</th>
-            <th>Anexo</th>
-          </tr>
-        </thead>
-        <tbody>
-        <% @construction.documents.each do |d| %>
-          <tr>     
-              <td><%= d.document_type.name %> </td>  
-              <td><%= link_to "Visualizar", rails_blob_path(d.attachment, disposition: 'preview'), target: :_blank  %></td>                 
+  
+
+  <div class="card-body p-0">  
+    <table class="bootstrap-table-mobile">
+      <thead>
+        <tr>
+          <th data-align='center'>ID</th>
+          <th data-align='center'>Vínculo</th>
+          <th data-align='center'>Status do Vínculo</th>
+          <th data-align='center'>Pessoa</th> 
+          <th data-align='center'>CPF</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @construction.employments.each do |t| %>
+          <tr>                
+            <td><%= t.id %></td>
+            <td><%= t.occupation.name %></td>  
+            <td><%= t.status %></td>  
+            <td><%= t.person.name %></td>
+            <td><%= t.person.cpf %></td>  
           </tr>
         <% end %>
-        </tbody>
-      </table>          
-      </div>
-    </div>
+      </tbody>
+    </table>          
   </div>
 </div> 
+
+
+
 
 
 <div class="card card-outline card-info">
@@ -94,6 +100,88 @@
   </div>
 </div> 
 
+
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      Diário de Trabalho
+      <%= link_to new_construction_work_diary_path(@construction), class: "btn btn-xs btn-info" do %>
+        Adicionar <i class="fa fa-plus"></i> 
+      <% end %>     
+    </h3>
+  </div>
+  
+
+  <div class="card-body p-0">  
+    <table class="bootstrap-table-mobile">
+      <thead>
+        <tr>
+          <th data-align='center'>ID</th>
+          <th data-align='center'>Data</th> 
+          <th data-align='center'>Etapa</th>
+          <th data-align='center'>Hora de Início</th>
+          <th data-align='center'>Hora de Fim</th>        
+          <th data-align='center'>Ações</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <% @construction.work_diaries.each do |t| %>
+          <tr>     
+            <td> 
+                <%= link_to construction_work_diary_path(@construction) do %>
+                  <%= t.id %></i> 
+                <% end %>    
+            </td>    
+           
+            <td><%= t.work_date %></td>
+            <td><%= t.stage.name %></td>
+            <td><%= t.start_time %></td>  
+            <td><%= t.end_time %></td>              
+           
+            <td> 
+              <%= link_to construction_work_diary_path(@construction), class: "btn btn-xs btn-info" do %>
+                Visualizar </i> 
+              <% end %>    
+            </td>    
+          </tr>
+        <% end %>
+      </tbody>
+    </table>          
+  </div>
+</div> 
+
+
+
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      Documentos
+    </h3>
+  </div>
+  <div class="table">
+    <div id="documentos" class='row'>
+      <div class="card-body">  
+      <table class="table table-bordered table-striped no-padding datatables">
+        <thead>
+          <tr>
+            <th width="15%">Tipo de Documento</th>
+            <th>Anexo</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @construction.documents.each do |d| %>
+          <tr>     
+              <td><%= d.document_type.name %> </td>  
+              <td><%= link_to "Visualizar", rails_blob_path(d.attachment, disposition: 'preview'), target: :_blank  %></td>                 
+          </tr>
+        <% end %>
+        </tbody>
+      </table>          
+      </div>
+    </div>
+  </div>
+</div> 
 
 
 

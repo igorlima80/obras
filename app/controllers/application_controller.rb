@@ -20,8 +20,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_configurations
-    @app_name = "Gestão de Obras"
-    @app_description = "Sistema de Gestão de Profissionais"
+    @app_name = "MyHouse"
+    @app_description = "Sistema de Gestão de Construções"
     @menu = MenuItem.published
 
     params[:q] = {} unless params[:q]

@@ -1,0 +1,183 @@
+<%= simple_form_for([@construction, @work_diary]) do |f| %>
+  <div class="card card-outline card-info">
+    <div class="card-header">
+      <h3 class="card-title">
+        Dados do <%= object.class.model_name.human %> 
+        <%= link_to 'Cancelar', @construction, class: "btn btn-default btn-xs" %>
+        <%= f.submit 'Salvar', class: "btn btn-info btn-xs" %>
+      </h3>
+    </div>
+
+    <div class="card-body">
+      <div class="row">     
+      
+      <%= f.association :stage, input_html: { class: 'select2' }, wrapper_html: { class: 'col-md-4' } %>
+      <%= f.input :work_date, html5: true,  wrapper_html: { class: 'col-md-2' } %>
+      <%= f.input :start_time, html5: true,  wrapper_html: { class: 'col-md-2' } %>
+      <%= f.input :end_time, html5: true,  wrapper_html: { class: 'col-md-2' } %>
+      <%= f.input :activities_description, wrapper_html: { class: 'col-md-6' } %>
+      </div>
+    </div>  
+  </div>
+
+
+  <div class="tab-pane" id="tab_5">
+      <div class="card card-outline card-info">
+        <div class="card-header">
+          <h3 class="card-title">
+            Problemas
+          </h3>
+        </div>
+        <div class="card-body">
+                    
+          <div id="task_types" class='row'>
+            <div class="col-md-12">
+              <%= f.simple_fields_for :problems do |tt| %>
+                <%= render 'problem_fields', f: tt %>
+              <% end %>
+
+              <div class="control-group">
+                <div class="controls">
+                  <%= link_to_add_association f, :problems do %>
+                    <div class="btn btn-success">
+                      <i class="fa fa-fw fa-plus"></i> Adicionar Problema
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="tab_5">
+    <div class="card card-outline card-info">
+      <div class="card-header">
+        <h3 class="card-title">
+          Tempo
+        </h3>
+      </div>
+      <div class="card-body">
+                  
+        <div id="task_types" class='row'>
+          <div class="col-md-12">
+            <%= f.simple_fields_for :wheaters do |tt| %>
+              <%= render 'wheater_fields', f: tt %>
+            <% end %>
+
+            <div class="control-group">
+              <div class="controls">
+                <%= link_to_add_association f, :wheaters do %>
+                  <div class="btn btn-success">
+                    <i class="fa fa-fw fa-plus"></i> Adicionar Tempo
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="tab-pane" id="tab_5">
+  <div class="card card-outline card-info">
+    <div class="card-header">
+      <h3 class="card-title">
+        Frequências
+      </h3>
+    </div>
+    <div class="card-body">
+                
+      <div id="task_types" class='row'>
+        <div class="col-md-12">
+          <%= f.simple_fields_for :frequencies do |tt| %>
+            <%= render 'frequency_fields', f: tt %>
+          <% end %>
+
+          <div class="control-group">
+            <div class="controls">
+              <%= link_to_add_association f, :frequencies do %>
+                <div class="btn btn-success">
+                  <i class="fa fa-fw fa-plus"></i> Adicionar Frequência
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="tab-pane" id="tab_5">
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      Documentos
+    </h3>
+  </div>
+  <div class="card-body">
+    <div class='row'>
+      <div class="col-md-12">
+        <%= f.simple_fields_for :documents do |fe| %>
+          <%= render 'document_fields', f: fe %>
+        <% end %>
+
+        <div class="control-group">
+          <div class="controls">
+            <%= link_to_add_association f, :documents do %>
+              <div class="btn btn-success">
+                <i class="fa fa-fw fa-plus"></i> Adicionar Documento
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>  
+
+
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      Fotos
+    </h3>
+  </div>
+  <div class="card-body">
+    <div class='row'>
+      <div class="col-md-12">
+        <%= f.simple_fields_for :photos do |fe| %>
+          <%= render 'photo_fields', f: fe %>
+        <% end %> 
+
+        <div class="control-group">
+          <div class="controls">
+            <%= link_to_add_association f, :photos do %>
+              <div class="btn btn-success">
+                <i class="fa fa-fw fa-plus"></i> Adicionar Foto
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+
+
+
+  <div class="card card-outline card-info">
+    <div class="card-footer">
+      <%= f.submit class: "btn btn-info" %>
+      <%= link_to 'Cancelar', @construction, class: "btn btn-default" %>
+    </div>
+  </div>
+
+<% end %>

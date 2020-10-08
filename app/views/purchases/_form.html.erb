@@ -10,10 +10,10 @@
 
     <div class="card-body">
       <div class="row">     
+      <%= f.association :construction, label_method: :full_description, wrapper_html: { class: 'col-md-6' } %>
+      <%= f.association :sub_stage, label_method: :full_description, input_html: { class: 'select2' }, wrapper_html: { class: 'col-md-6' } %>
       <%= f.input :expected_date, html5: true,  wrapper_html: { class: 'col-md-3' } %>
       <%= f.input :purchase_date, html5: true,  wrapper_html: { class: 'col-md-3' } %>
-      <%= f.association :construction, wrapper_html: { class: 'col-md-3' } %>
-      <%= f.association :sub_stage, label_method: :full_description, input_html: { class: 'select2' }, wrapper_html: { class: 'col-md-3' } %>
       <%= f.association :provider, wrapper_html: { class: 'col-md-3' } %>
       <%= f.input :status, wrapper_html: { class: 'col-md-3' } %>
       </div>

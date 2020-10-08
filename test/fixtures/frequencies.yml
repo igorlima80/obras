@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start: 2020-10-07 19:18:12
+  finish: 2020-10-07 19:18:12
+  work_diary: one
+  employment: one
+
+two:
+  start: 2020-10-07 19:18:12
+  finish: 2020-10-07 19:18:12
+  work_diary: two
+  employment: two

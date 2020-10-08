@@ -3,8 +3,8 @@ class EmploymentsController < ApplicationController
   # GET /employments
   
   def index
-    get_person   
-    @employments = @person.imployments.page(params[:page])    
+    @q = Employment.ransack(params[:q])
+    @employments = @q.result(distinct: true).page(params[:page])
   end
 
   # GET /employments/1
@@ -36,7 +36,7 @@ class EmploymentsController < ApplicationController
   # PATCH/PUT /employments/1
   def update
     if @employment.update(employment_params)
-      redirect_to @employment, notice: 'Employment was successfully updated.'
+      redirect_to @employment.person, notice: 'Employment was successfully updated.'
     else
       render :edit
     end

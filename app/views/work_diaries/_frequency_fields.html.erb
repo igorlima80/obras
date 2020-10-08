@@ -1,0 +1,15 @@
+<div class="frequency nested-fields">
+  <div class='row'>
+   
+  <%= f.association :employment, collection: @construction.employments, label_method: :full_description, wrapper_html: { class: 'col-md-5' } %>
+  <%= f.input :start, html5: true,  wrapper_html: { class: 'col-md-2' } %>
+  <%= f.input :finish, html5: true,  wrapper_html: { class: 'col-md-2' } %>
+  <%= f.input :presence,  wrapper_html: { class: 'col-md-1' } %>
+
+    <div class="col-md-2">
+      <%= link_to_remove_association f, class: 'btn btn-danger top-32' do %>
+        <i class="fa fa-fw fa-times"></i>
+      <% end %>
+    </div>
+  </div>
+</div>

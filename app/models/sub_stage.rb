@@ -4,7 +4,7 @@ class SubStage < ApplicationRecord
     accepts_nested_attributes_for :task_types, allow_destroy: true
 
     def full_description
-      "Etapa: #{self.stage.name} - Sub-Etapa: #{self.name})" 
+      "#{self.stage.name} - #{self.name}" 
     end
   
 end

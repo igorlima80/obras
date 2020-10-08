@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :work_diaries
   resources :purchase_items
   resources :purchases
   resources :materials
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   
   resources :constructions do
     resources :tasks
+    resources :work_diaries
   end 
 
   resources :construction_types

@@ -1,0 +1,154 @@
+<%= render 'shared/show', box_class: 'info', object: @work_diary%>
+
+
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+     Problemas 
+    </h3>
+  </div>
+
+  <div class="card-body p-0">  
+    <table class="bootstrap-table-mobile">
+      <thead>
+        <tr>
+          <th data-align='center'>ID</th>
+          <th data-align='left'>Nome</th> 
+          <th data-align='center'>Descrição</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <% @work_diary.problems.each do |t| %>
+          <tr>     
+            <td><%= t.id %></i> </td>              
+            <td><%= t.name %></td>
+            <td><%= t.description %></td>           
+          </tr>
+        <% end %>
+      </tbody>
+    </table>          
+  </div>
+</div> 
+
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+     Tempo 
+    </h3>
+  </div>
+  
+  <div class="card-body p-0">  
+    <table class="bootstrap-table-mobile">
+      <thead>
+        <tr>
+          <th data-align='center'>ID</th>
+          <th data-align='left'>Turno</th> 
+          <th data-align='center'>Condição Climática</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <% @work_diary.wheaters.each do |t| %>
+          <tr>     
+            <td><%= t.id %></i> </td>              
+            <td><%= t.shift %></td>
+            <td><%= t.climate_condition %></td>           
+          </tr>
+        <% end %>
+      </tbody>
+    </table>          
+  </div>
+</div> 
+
+<div class="card card-outline card-info">
+<div class="card-header">
+  <h3 class="card-title">
+   Frequência 
+  </h3>
+</div>
+
+<div class="card-body p-0">  
+  <table class="bootstrap-table-mobile">
+    <thead>
+      <tr>
+        <th data-align='center'>ID</th>
+        <th data-align='left'>Profissional</th> 
+        <th data-align='center'>Hora de Início</th>
+        <th data-align='center'>Hora de Término</th>
+        <th data-align='center'>Presença</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @work_diary.frequencies.each do |t| %>
+        <tr>     
+          <td><%= t.id %></i> </td>              
+          <td><%= t.employment.full_description %></td>
+          <td><%= t.start %></td>           
+          <td><%= t.finish %></td>           
+          <td><%= t.presence %></td>           
+        </tr>
+      <% end %>
+    </tbody>
+  </table>          
+</div>
+</div> 
+
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      Documentos
+    </h3>
+  </div>
+  <div class="table">
+    <div id="documentos" class='row'>
+      <div class="card-body">  
+      <table class="table table-bordered table-striped no-padding datatables">
+        <thead>
+          <tr>
+            <th width="15%">Tipo de Documento</th>
+            <th>Anexo</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @work_diary.documents.each do |d| %>
+          <tr>     
+              <td><%= d.document_type.name %> </td>  
+              <td><%= link_to "Visualizar", rails_blob_path(d.attachment, disposition: 'preview'), target: :_blank  %></td>                 
+          </tr>
+        <% end %>
+        </tbody>
+      </table>          
+      </div>
+    </div>
+  </div>
+</div> 
+
+
+
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      Fotos
+    </h3>
+  </div>
+  <div class="table">
+    <div id="fotos" class='row'>
+      <div class="card-body">  
+      <table class="table table-bordered table-striped no-padding datatables">
+        <thead>
+          
+        </thead>
+        <tbody>
+        <% @work_diary.photos.each do |d| %>
+          <tr>    
+                          
+            <%= image_tag rails_blob_path(d.image) %>            
+          </tr>
+        <% end %>
+        </tbody>
+      </table>          
+      </div>
+    </div>
+  </div>
+</div> 

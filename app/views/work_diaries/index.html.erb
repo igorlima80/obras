@@ -1,0 +1,15 @@
+<%= render 'shared/card_list',
+  list: @work_diaries,
+  sort_all: true,
+  show_new: true,
+  card_class: 'info',
+  table_class: 'bootstrap-table-mobile',
+  show_columns: [
+    'id',
+    'construction.full_description',
+    'stage.name',
+    'work_date',
+    'start_time',
+    'end_time'
+  ]
+%>
