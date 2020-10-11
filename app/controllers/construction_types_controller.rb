@@ -54,6 +54,6 @@ class ConstructionTypesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def construction_type_params
-      params.require(:construction_type).permit(:name)
+      params.require(:construction_type).permit(:name, :sub_stage_ids => [])
     end
 end

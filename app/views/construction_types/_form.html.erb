@@ -1,0 +1,45 @@
+
+      <%= simple_form_for(@construction_type) do |f| %>
+        <div class="card card-outline card-info">
+          <div class="card-header">
+            <h3 class="card-title">
+              Dados do <%= object.class.model_name.human %> 
+              <%= link_to 'Cancelar', eval_with_rescue("#{controller_name}_path"), class: "btn btn-default btn-xs" %>
+              <%= f.submit 'Salvar', class: "btn btn-info btn-xs" %>
+            </h3>
+          </div>
+      
+          <div class="card-body">
+            <div class="row">          
+              <%= f.input :name, wrapper_html: { class: 'col-md-12' } %>       
+      
+            </div>
+          </div>  
+        </div>
+      
+      
+        <div class="card card-outline card-info">
+        <div class="card-header">
+          <h3 class="card-title">
+            Etapas
+          </h3>
+        </div>
+        <div class="card-body">
+          <div class="row">              
+              <%= f.association :sub_stages,  as: :check_boxes, collection: SubStage.all, label_method: :full_description,  html5: true, wrapper_html: { class: 'col-md-12' } %>                     
+          </div>                
+        </div>
+      </div>
+</div>
+      
+      
+      
+      
+        <div class="card card-outline card-info">
+          <div class="card-footer">
+            <%= f.submit class: "btn btn-info" %>
+            <%= link_to 'Cancelar', eval_with_rescue("#{controller_name}_path"), class: "btn btn-default" %>
+          </div>
+        </div>
+      
+      <% end %>      

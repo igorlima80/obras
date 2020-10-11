@@ -1,13 +1,15 @@
 class AddStages < SeedMigration::Migration
   def up
     Stage.create(id:1, name: "Projetos e Aprovações") 
-      SubStage.create(name: "Projetos", stage_id: 1) 
-      SubStage.create(name: "Aprovação Legal", stage_id: 1)
-      SubStage.create(name: "Outros", stage_id: 1)  
+      SubStage.create(id: 1,name: "Projetos", stage_id: 1) 
+      SubStage.create(id: 2, name: "Aprovação Legal", stage_id: 1)
+      SubStage.create(id: 3, name: "Outros", stage_id: 1)  
 
     Stage.create(id:2, name: 'Infra Básica')
-      SubStage.create(name: "Terraplanagem e Escavações", stage_id: 2) 
-      SubStage.create(name: "Instalação Barracão Provisório", stage_id: 2) 
+      SubStage.create(id: 4, name: "Terraplanagem e Escavações", stage_id: 2) 
+        TaskType.create(name:"Corte e Aterro", sub_stage_id:4 )
+      SubStage.create(id: 5, name: "Instalação Barracão Provisório", stage_id: 2)
+        TaskType.create(name:"Cavalete de ligação de água na rede pública " , sub_stage_id: 5 ) 
       SubStage.create(name: "Energia Provisória", stage_id: 2) 
       SubStage.create(name: "Ligação de Esgoto", stage_id: 2) 
       

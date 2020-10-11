@@ -1,1 +1,31 @@
 <%= render 'shared/show', box_class: 'info', object: @construction_type%>
+
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      Etapas  
+    </h3>
+  </div>
+  
+
+  <div class="card-body p-0">  
+    <table class="bootstrap-table-mobile">
+      <thead>
+        <tr>
+          <th data-align='center'>ID</th>
+          <th data-align='center'>Etapa</th>
+          <th data-align='center'>Sub-Etapa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @construction_type.sub_stages.each do |t| %>
+          <tr>                
+            <td><%= t.id %></td>
+            <td><%= t.stage.name %></td>  
+            <td><%= t.name %></td>  
+          </tr>
+        <% end %>
+      </tbody>
+    </table>          
+  </div>
+</div> 
