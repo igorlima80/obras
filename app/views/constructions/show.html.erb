@@ -55,8 +55,8 @@
       <thead>
         <tr>
           <th data-align='center'>ID</th>
-          <th data-align='center'>Etapa</th> 
-          <th data-align='center'>Tipo de Tarefa</th>
+          <th data-align='left'>Etapa</th> 
+          <th data-align='left'>Tipo de Tarefa</th>
           <th data-align='center'>Data de Início</th>
           <th data-align='center'>Data de Fim</th>
           <th data-align='center'>Orçamento Previsto</th>
@@ -76,7 +76,7 @@
                 <% end %>    
             </td>    
            
-            <td><%= t.task_type.stage.name %></td>
+            <td><%= t.task_type.sub_stage.full_description %></td>
             <td><%= t.task_type.name %></td>
             <td><%= t.start_date %></td>  
             <td><%= t.end_date %></td>  

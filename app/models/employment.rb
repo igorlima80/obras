@@ -18,17 +18,13 @@ class Employment < ApplicationRecord
 
   has_and_belongs_to_many :constructions
 
-  
-
 
   after_create :set_active_employment
 
   def set_active_employment
     self.person.employments.each do |emp|
-      Employment.find(emp.id).update(status: 'cancelled')
-     
+      Employment.find(emp.id).update(status: 'cancelled')     
     end 
-
     self.status = 'active'
     self.save
   end  

@@ -25,8 +25,28 @@ class Construction < ApplicationRecord
 
   has_and_belongs_to_many :employments, dependent: :destroy
 
+  
+
   def full_description
     "#{self.workplace.name} - #{self.construction_type.name} - #{self.area} m² - #{self.name} " 
   end
+
+  after_create :create_tasks
+
+  def create_tasks    
+
+    puts "create tasks"
+    self.construction_type.task_types.each do |tt|      
+        puts "task type: "
+        puts tt.name
+        task = self.tasks.build
+        task.status = "registered"
+        task.task_type_id = tt.id
+        self.save        
+    end 
+    
+    
+  end  
+
 
 end

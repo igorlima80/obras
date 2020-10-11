@@ -7,7 +7,7 @@ class Task < ApplicationRecord
 
   belongs_to :task_type
   belongs_to :construction
-  belongs_to :employment
+  belongs_to :employment, optional: true
 
   monetize :budget_amount_cents
   monetize :cost_cents
