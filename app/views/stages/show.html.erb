@@ -4,7 +4,7 @@
 <div class="card card-outline card-info">
   <div class="card-header">
     <h3 class="card-title">
-     Sub-Etapas 
+     Tipos de Tarefa 
     </h3>
   </div>
   
@@ -20,10 +20,10 @@
         </tr>
       </thead>
       <tbody>
-        <% @stage.sub_stages.each do |t| %>
+        <% @stage.task_types.each do |t| %>
           <tr>     
             <td> 
-                <%= link_to sub_stage_path(t) do %>
+                <%= link_to task_type_path(t) do %>
                   <%= t.id %></i> 
                 <% end %>    
             </td>    
@@ -31,7 +31,7 @@
             <td><%= t.name %></td>
             
             <td> 
-              <%= link_to sub_stage_path(t), class: "btn btn-xs btn-info" do %>
+              <%= link_to task_type_path(t), class: "btn btn-xs btn-info" do %>
                 Visualizar </i> 
               <% end %>    
             </td>    

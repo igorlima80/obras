@@ -9,7 +9,7 @@ class AddMenu < SeedMigration::Migration
 
     planning = MenuItem.create name: 'Planejamento', icon: 'fas fa-project-diagram', link: '#', position: 2, target: '_self', permission: 'manage', permission_check: 'all', menu_item_id: nil, active_test: "", published: true
       MenuItem.create name: 'Etapas', icon: 'fas fa-bars', link: 'stages_path', position: 1, target: '_self', permission: 'manage', permission_check: 'Stages', menu_item: planning, active_test: "controller_name == 'stages'", published: true
-      MenuItem.create name: 'Sub-Etapas', icon: 'fas fa-tasks', link: 'sub_stages_path', position: 2, target: '_self', permission: 'manage', permission_check: 'SubStages', menu_item: planning, active_test: "controller_name == 'sub_stages'", published: true
+      MenuItem.create name: 'Tipos de Tarefas', icon: 'fas fa-tasks', link: 'task_types_path', position: 2, target: '_self', permission: 'manage', permission_check: 'SubStages', menu_item: planning, active_test: "controller_name == 'task_types'", published: true
       MenuItem.create name: 'Tipos de Construções', icon: 'fas fa-landmark', link: 'construction_types_path', position: 3, target: '_self', permission: 'manage', permission_check: 'ConstructionType', menu_item: planning, published: true, active_test: "controller_name == 'construction_types'"     
     
     construcao = MenuItem.create name: 'Gestão de Obras', icon: 'fas fa-archway', link: '#', position: 4, target: '_self', permission: 'manage', permission_check: 'all', menu_item_id: nil, active_test: "", published: true
@@ -18,9 +18,11 @@ class AddMenu < SeedMigration::Migration
       
     compra = MenuItem.create name: 'Compras e Serviços', icon: 'fas fa-shopping-cart', link: '#', position: 5, target: '_self', permission: 'manage', permission_check: 'all', menu_item_id: nil, active_test: "", published: true
       MenuItem.create name: 'Fornecedores', icon: 'fa fa-handshake', link: 'providers_path', position: 6, target: '_self', permission: 'manage', permission_check: 'Provider', menu_item: compra, published: true, active_test: "controller_name == 'providers'"     
-      MenuItem.create name: 'Categorias de Material', icon: 'fa fa-tools', link: 'material_categories_path', position: 7, target: '_self', permission: 'manage', permission_check: 'MaterialCategory', menu_item: compra, published: true, active_test: "controller_name == 'material_categories'"     
+      MenuItem.create name: 'Categorias de Material', icon: 'fa fa-box', link: 'material_categories_path', position: 7, target: '_self', permission: 'manage', permission_check: 'MaterialCategory', menu_item: compra, published: true, active_test: "controller_name == 'material_categories'"     
       MenuItem.create name: 'Materiais', icon: 'fa fa-shopping-basket', link: 'materials_path', position: 8, target: '_self', permission: 'manage', permission_check: 'Material', menu_item: compra, published: true, active_test: "controller_name == 'materials'"     
       MenuItem.create name: 'Compras', icon: 'fa fa-cart-arrow-down', link: 'purchases_path', position: 9, target: '_self', permission: 'manage', permission_check: 'Purchase', menu_item: compra, published: true, active_test: "controller_name == 'purchases'"     
+      MenuItem.create name: 'Tipos de Serviço', icon: 'fa fa-tools', link: 'purchases_path', position: 9, target: '_self', permission: 'manage', permission_check: 'Purchase', menu_item: compra, published: true, active_test: "controller_name == 'purchases'"     
+      MenuItem.create name: 'Serviços', icon: 'fa fa-toolbox', link: 'purchases_path', position: 9, target: '_self', permission: 'manage', permission_check: 'Purchase', menu_item: compra, published: true, active_test: "controller_name == 'purchases'"     
     
     admin = MenuItem.create name: 'Admin', icon: 'fas fa-lock', link: '#', position: 100, target: '_self', permission: 'manage', permission_check: 'all', menu_item_id: nil, active_test: "", published: true
       MenuItem.create name: 'Usuários', icon: 'fas fa-users', link: 'users_path', position: 1, target: '_self', permission: 'manage', permission_check: 'User', menu_item: admin, active_test: "controller_name == 'users'", published: true

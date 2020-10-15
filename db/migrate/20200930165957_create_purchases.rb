@@ -6,7 +6,7 @@ class CreatePurchases < ActiveRecord::Migration[6.0]
       t.references :construction, null: false, foreign_key: true
       t.references :provider, null: false, foreign_key: true
       t.integer :status
-      t.references :sub_stage, null: false, foreign_key: true
+      t.references :task_type, null: false, foreign_key: true
       t.timestamps
     end
   end

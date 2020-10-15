@@ -26,6 +26,20 @@ class AddDocumentType < SeedMigration::Migration
     DocumentType.create!(name: "Número do programa de integração social", code: "PIS_PASEP")
     DocumentType.create!(name: "Cadastro especifico do INSS", code: "INSS")
     DocumentType.create!(name: "Número do identificação do trabalho", code: "NIT")
+    DocumentType.create!(name: "Projeto Arquitetônico", code: "")
+    DocumentType.create!(name: "Projeto Estrutural", code: "")  
+    DocumentType.create!(name: "Projeto Elétrico", code: "")  
+    DocumentType.create!(name: "Projeto Hidrossanitário", code: "")    
+    DocumentType.create!(name: "Projeto de Impermeabilização", code: "")      
+    DocumentType.create!(name: "Projetos Complementares", code: "")        
+    DocumentType.create!(name: "Projeto da Execução", code: "")          
+    DocumentType.create!(name: "Contrato", code: "")
+    DocumentType.create!(name: "Alvará/licença de obra", code: "")
+    
+            
+      
+      
+      
   end
 
   def down

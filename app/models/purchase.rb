@@ -8,7 +8,7 @@ class Purchase < ApplicationRecord
 
   belongs_to :construction
   belongs_to :provider
-  belongs_to :sub_stage
+  belongs_to :task_type
 
   has_many :purchase_items, dependent: :destroy
   accepts_nested_attributes_for :purchase_items, allow_destroy: true

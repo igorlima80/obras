@@ -17,7 +17,7 @@ class PurchasesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create purchase" do
     assert_difference('Purchase.count') do
-      post purchases_url, params: { purchase: { construction_id: @purchase.construction_id, expected_date: @purchase.expected_date, provider_id: @purchase.provider_id, status: @purchase.status, sub_stage_id: @purchase.sub_stage_id } }
+      post purchases_url, params: { purchase: { construction_id: @purchase.construction_id, expected_date: @purchase.expected_date, provider_id: @purchase.provider_id, status: @purchase.status, task_type_id: @purchase.task_type_id } }
     end
 
     assert_redirected_to purchase_url(Purchase.last)
@@ -34,7 +34,7 @@ class PurchasesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update purchase" do
-    patch purchase_url(@purchase), params: { purchase: { construction_id: @purchase.construction_id, expected_date: @purchase.expected_date, provider_id: @purchase.provider_id, status: @purchase.status, sub_stage_id: @purchase.sub_stage_id } }
+    patch purchase_url(@purchase), params: { purchase: { construction_id: @purchase.construction_id, expected_date: @purchase.expected_date, provider_id: @purchase.provider_id, status: @purchase.status, task_type_id: @purchase.task_type_id } }
     assert_redirected_to purchase_url(@purchase)
   end
 

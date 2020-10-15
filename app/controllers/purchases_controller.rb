@@ -54,7 +54,7 @@ class PurchasesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def purchase_params
-      params.require(:purchase).permit(:expected_date, :construction_id, :provider_id, :status, :sub_stage_id,
+      params.require(:purchase).permit(:expected_date, :construction_id, :provider_id, :status, :task_type_id,
         purchase_items_attributes: [
           :id, :amount, :unity_price, :total_price, :material_id, :_destroy
         ])

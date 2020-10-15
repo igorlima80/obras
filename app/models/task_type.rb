@@ -1,8 +1,8 @@
 class TaskType < ApplicationRecord
-  belongs_to :sub_stage
+  belongs_to :stage
 
   def full_description
-    "Etapa: #{self.sub_stage.full_description} - Tarefa: #{self.name})" 
+    "Etapa: #{self.stage.name} - Tarefa: #{self.name}" 
   end
 
 end

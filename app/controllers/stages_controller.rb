@@ -56,7 +56,7 @@ class StagesController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def stage_params
       params.require(:stage).permit(:name,
-        sub_stages_attributes: [
+        task_types_attributes: [
               :id, :name, :_destroy
         ])
     end

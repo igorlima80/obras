@@ -26,7 +26,7 @@
         </div>
         <div class="card-body">
           <div class="row">              
-              <%= f.association :sub_stages,  as: :check_boxes, collection: SubStage.all, label_method: :full_description,  html5: true, wrapper_html: { class: 'col-md-12' } %>                     
+              <%= f.association :task_types,  as: :check_boxes, collection: TaskType.all, label_method: :full_description,  html5: true, wrapper_html: { class: 'col-md-12' } %>                     
           </div>                
         </div>
       </div>

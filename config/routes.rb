@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   
+  resources :services
+  resources :service_types
   resources :work_diaries
   resources :purchase_items
   resources :purchases
   resources :materials
   resources :material_categories
-  resources :sub_stages
   resources :bank_accounts
   resources :providers
   resources :banks

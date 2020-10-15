@@ -1,5 +1,5 @@
 <%= render 'shared/card_list',
-  list: @purchases,
+  list: @services,
   order: 'id',
   sort_all: true,
   show_new: true,
@@ -7,11 +7,15 @@
   table_class: 'bootstrap-table-mobile',
   show_columns: [
     'id',
-    'expected_date',
-    'purchase_date',
-    'construction.name',
+    'construction.full_description',
     'task_type.name',
-    'provider.name',
-    'status'
+    'service_type.name',
+    'provider.company_name',
+    'expected_date',
+    'start_date',
+    'end_date',
+    'total_price'
   ]
 %>
+
+    

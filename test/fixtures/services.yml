@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  service_type: one
+  provider: one
+  task_type: one
+  expected_date: 2020-10-14
+  description: MyText
+  total_price: 
+  start_date: 2020-10-14
+  end_date: 2020-10-14
+
+two:
+  service_type: two
+  provider: two
+  task_type: two
+  expected_date: 2020-10-14
+  description: MyText
+  total_price: 
+  start_date: 2020-10-14
+  end_date: 2020-10-14

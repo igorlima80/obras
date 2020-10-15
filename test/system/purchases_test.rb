@@ -18,7 +18,7 @@ class PurchasesTest < ApplicationSystemTestCase
     fill_in "Expected date", with: @purchase.expected_date
     fill_in "Provider", with: @purchase.provider_id
     fill_in "Status", with: @purchase.status
-    fill_in "Sub stage", with: @purchase.sub_stage_id
+    fill_in "Sub stage", with: @purchase.task_type_id
     click_on "Create Purchase"
 
     assert_text "Purchase was successfully created"
@@ -33,7 +33,7 @@ class PurchasesTest < ApplicationSystemTestCase
     fill_in "Expected date", with: @purchase.expected_date
     fill_in "Provider", with: @purchase.provider_id
     fill_in "Status", with: @purchase.status
-    fill_in "Sub stage", with: @purchase.sub_stage_id
+    fill_in "Sub stage", with: @purchase.task_type_id
     click_on "Update Purchase"
 
     assert_text "Purchase was successfully updated"
