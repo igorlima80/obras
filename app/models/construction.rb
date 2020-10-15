@@ -25,6 +25,9 @@ class Construction < ApplicationRecord
 
   has_and_belongs_to_many :employments, dependent: :destroy
 
+  has_many :projects, dependent: :destroy
+  accepts_nested_attributes_for :projects
+
   
 
   def full_description

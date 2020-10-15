@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :project_types
   resources :services
   resources :service_types
   resources :work_diaries

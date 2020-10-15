@@ -128,7 +128,39 @@
             </div>                
           </div>
         </div>
+
+        <div class="card card-outline card-info">
+          <div class="card-header">
+            <h3 class="card-title">
+              Projetos
+            </h3>
+          </div>
+          <div class="card-body">
+            <div class="row">              
+              <div class="col-md-12">
+                <%= f.simple_fields_for :projects do |p| %>
+                  <%= render 'document_fields', f: p %>
+                <% end %>
+
+                <div class="control-group">
+                  <div class="controls">
+                    <%= link_to_add_association f, :projects do %>
+                      <div class="btn btn-success">
+                        <i class="fa fa-fw fa-plus"></i> Adicionar Projeto
+                      </div>
+                    <% end %>
+                </div>
+              </div>
+            </div>
+            </div>                
+          </div>
+
+        </div>
+
+
       </div>
+
+
     
 
       <div class="tab-pane" id="tab_5">
