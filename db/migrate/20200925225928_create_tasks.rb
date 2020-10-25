@@ -4,6 +4,7 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.references :task_type, null: false, foreign_key: true
       t.references :construction, null: false, foreign_key: true
       t.integer :status
+      t.integer :percentage
       t.monetize :budget_amount
       t.date :start_date
       t.date :end_date

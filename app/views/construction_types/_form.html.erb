@@ -24,9 +24,37 @@
             Etapas
           </h3>
         </div>
+
+        <% Stage.all.each do |st| %>
+          <div class="card-body p-0">  
+          <table class="bootstrap-table-mobile">
+            <thead>
+              <tr>
+                <th data-align='left'><%= st.name %> </th>                             
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>                
+                  <td><%= f.association :task_types,  as: :check_boxes, collection: st.task_types, label_method: :name,  html5: true, wrapper_html: { class: 'col-md-12' } %> </td>
+                 
+                </tr>
+              
+            </tbody>
+          </table>          
+        </div>  
+
+          
+
+        <% end %>
+
+              
+
+
+
         <div class="card-body">
           <div class="row">              
-              <%= f.association :task_types,  as: :check_boxes, collection: TaskType.all, label_method: :full_description,  html5: true, wrapper_html: { class: 'col-md-12' } %>                     
+                                  
           </div>                
         </div>
       </div>

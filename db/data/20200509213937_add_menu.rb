@@ -1,7 +1,7 @@
 class AddMenu < SeedMigration::Migration
   def up
-    profissional = MenuItem.create name: 'Profissionais', icon: 'fab fa-hard-hat', link: '#', position: 1, target: '_self', permission: 'manage', permission_check: 'all', menu_item_id: nil, active_test: "", published: true
-      MenuItem.create name: 'Pessoas', icon: 'fas fa-user-tie', link: 'people_path', position: 2, target: '_self', permission: 'manage', permission_check: 'Person', menu_item: profissional, published: true, active_test: "controller_name == 'people'"  
+    profissional = MenuItem.create name: 'Pessoa', icon: 'fab fa-user-check', link: '#', position: 1, target: '_self', permission: 'manage', permission_check: 'all', menu_item_id: nil, active_test: "", published: true
+      MenuItem.create name: 'Pessoas', icon: 'fas fa-user-friends', link: 'people_path', position: 2, target: '_self', permission: 'manage', permission_check: 'Person', menu_item: profissional, published: true, active_test: "controller_name == 'people'"  
       MenuItem.create name: 'Cargos/Carreiras', icon: 'fas fa-briefcase', link: 'occupations_path', position:3, target: '_self', permission: 'manage', permission_check: 'Occupation', menu_item: profissional, active_test: "controller_name == 'occupations'", published: true
       MenuItem.create name: 'Deduções', icon: 'fas fa-percentage', link: 'deductions_path', position: 4, target: '_self', permission: 'manage', permission_check: 'deductions', menu_item: profissional, active_test: "controller_name == 'deductions'", published: true
       MenuItem.create name: 'Taxas', icon: 'fas fa-money-check-alt', link: 'taxes_path', position: 5, target: '_self', permission: 'manage', permission_check: 'taxes', menu_item: profissional, active_test: "controller_name == 'taxes'", published: true

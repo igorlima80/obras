@@ -14,6 +14,7 @@
         <%= f.association :task_type, collection: @construction.construction_type.task_types, label_method: :full_description, input_html: { class: 'select2' },   wrapper_html: { class: 'col-md-12' } %>         
         <%= f.input :start_date,  html5: true,  wrapper_html: { class: 'col-md-3' } %>  
         <%= f.input :end_date,  html5: true,  wrapper_html: { class: 'col-md-3' } %>  
+        <%= f.input :percentage, :input_html => {value: number_with_precision(f.object.percentage, precision: 2) } %>
         <%= f.input :budget_amount, wrapper_html: { class: 'col-md-3' } %>   
         <%= f.association :employment, collection: Employment.where(status: 'active'), label_method: :full_description, input_html: { class: 'select2' },  wrapper_html: { class: 'col-md-4' }  %>
                

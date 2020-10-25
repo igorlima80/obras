@@ -67,7 +67,7 @@ class ConstructionsController < ApplicationController
     def construction_params
       params.require(:construction).permit(:name, :description, :start_date, :end_date, :area, :expected_budget, 
                                            :ground_area, :bedroom, :bathroom, :toilet, :living_room, :cars_in_garage, 
-                                           :construction_type_id, :workplace_id, :pattern, :barbecue_grill, 
+                                           :construction_type_id, :workplace_id, :person_id, :pattern, :barbecue_grill, 
                                            :home_office, :balcony, :employment_ids => [],
           addresses_attributes: [
             :id, :description, :street, :number, :complement, :district, :zipcode, :city_id, :_destroy

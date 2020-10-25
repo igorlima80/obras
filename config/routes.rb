@@ -49,6 +49,6 @@ Rails.application.routes.draw do
   post 'utils/cities'
   get 'utils/cities'
 
-  root 'people#index'
+  root 'constructions#index'
   mount Crono::Web, at: '/crono'
 end

@@ -53,8 +53,10 @@
         <div class="card-body">
           <div class="row">
             <div class="col-9">
-                <%= f.input :name %>
-                <%= f.input :description %>                   
+                <%= f.association :person, collection: Person.order(:name),
+                    label_method: :full_description, 
+                    input_html: { class: 'select2' }, wrapper_html: { class: 'col-md-12' }  %>    
+                <%= f.input :description, wrapper_html: { class: 'col-md-12' }   %>                   
             </div>            
           </div>
         </div>

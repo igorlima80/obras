@@ -10,6 +10,7 @@ class Construction < ApplicationRecord
   
   belongs_to :construction_type
   belongs_to :workplace
+  belongs_to :person
 
   has_many :addresses, dependent: :destroy, as: :addressable
   accepts_nested_attributes_for :addresses
