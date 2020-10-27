@@ -13,6 +13,16 @@ class Purchase < ApplicationRecord
   has_many :purchase_items, dependent: :destroy
   accepts_nested_attributes_for :purchase_items, allow_destroy: true
 
+  after_create :sum_total_value
+
+  def sum_total_value
+    self.purchase_items.each do |item|
+      item.total_price_cents = item.unity_price * item.amount
+      
+      item.save
+    end  
+  end
+
  
 
   

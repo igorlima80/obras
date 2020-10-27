@@ -74,7 +74,12 @@ class ConstructionsController < ApplicationController
           ],
           documents_attributes: [
             :id, :_destroy, :document_type_id, :attachment
+          ],
+          projects_attributes: [
+            :id, :_destroy, :project_type_id, :state_id, :employment_id, :status, 
+            :advice, :advice_number, :rt_number, :attachment
           ]
+
       )
     end
 end

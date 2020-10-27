@@ -29,6 +29,10 @@ class Construction < ApplicationRecord
   has_many :projects, dependent: :destroy
   accepts_nested_attributes_for :projects
 
+  has_many :purchases
+  has_many :purchase_items, through: :purchases
+
+  has_many :services
   
 
   def full_description
@@ -39,17 +43,22 @@ class Construction < ApplicationRecord
 
   def create_tasks    
 
-    puts "create tasks"
-    self.construction_type.task_types.each do |tt|      
-        puts "task type: "
-        puts tt.name
-        task = self.tasks.build
-        task.status = "registered"
-        task.task_type_id = tt.id
-        self.save        
-    end 
-    
-    
+      self.construction_type.task_types.each do |tt|      
+          puts "task type: "
+          puts tt.name
+          task = self.tasks.build
+          task.status = "registered"
+          task.task_type_id = tt.id
+          self.save        
+      end      
+  end
+  
+  def percentual_of_execution
+    self.tasks.average(:percentage)
+  end
+
+  def total_amount_spend
+      self.purchase_items.sum(:total_price_cents) + self.services.sum(:total_price_cents)
   end  
 
 
